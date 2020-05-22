@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="app.com.example.android.locationreminder">
+
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	<uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="DejaVu"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme">
+		<activity
+			android:name=".Splash"
+			android:configChanges="orientation|keyboardHidden|screenSize"
+			android:theme="@style/FullscreenTheme"
+			>
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".DisplayNote"
+			android:label="Add a Note">
+		</activity>
+		<activity android:name=".MainActivity"
+		          android:theme="@style/AppTheme.NoActionBar"
+			      android:icon="@drawable/ic_my_location_black_48dp"
+			      android:label="DejaVu">
+		</activity>
+		<activity android:name=".DisplayLocation"
+			android:label="Add a Location">
+		</activity>
+		<activity android:name=".DisplayAlarm"
+			android:label="Add a Alarm">
+		</activity>
+
+		<receiver android:name=".AlarmReceiver"/>
+		<receiver
+			android:name=".BootReceiver"
+			android:enabled="false">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED"/>
+			</intent-filter>
+		</receiver>
+
+		<service android:name=".SchedulingService"/>
+		<service
+			android:name=".ListenerService"
+			android:enabled="true"
+			android:exported="true">
+		</service>
+
+	</application>
+
+</manifest>

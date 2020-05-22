@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="app.com.example.android.locationreminder.DisplayAlarm">
+
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/fab2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentRight="true"
+		android:layout_gravity="bottom|end"
+		android:layout_margin="@dimen/fab_margin"
+		android:onClick="edit_note"
+		android:src="@android:drawable/ic_menu_edit"
+		android:tint="?android:attr/colorBackground"
+		app:fabSize="normal"
+		app:rippleColor="@color/accent"
+		/>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true">
+
+		<RelativeLayout
+
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			>
+
+			<LinearLayout
+				android:id="@+id/date_time_layout"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentTop="true"
+				android:layout_marginTop="11dp"
+				android:orientation="vertical"
+				android:weightSum="1">
+
+				<RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+					<TextView
+						android:id="@+id/note_header"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_margin="16dp"
+						android:layout_marginTop="8dp"
+						android:gravity="center"
+						android:textAllCaps="true"
+						android:textSize="36sp"
+						android:textStyle="bold"/>
+
+					<EditText
+						android:id="@+id/note_header_edit"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_margin="16dp"
+						android:layout_marginTop="8dp"
+						android:textSize="36sp"
+						android:visibility="invisible"/>
+				</RelativeLayout>
+
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:orientation="horizontal">
+
+					<TextView
+						android:id="@+id/showDate"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="10dp"
+						android:background="#f45234"
+						android:gravity="center"
+						android:paddingBottom="10dp"
+						android:paddingLeft="20dp"
+						android:paddingRight="20dp"
+						android:paddingTop="10dp"
+						android:text="date"
+						android:textColor="#ffffff"
+						android:textSize="18sp"
+						/>
+
+					<TextView
+						android:id="@+id/showTime"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="10dp"
+						android:background="#5234f4"
+						android:gravity="center"
+						android:paddingBottom="10dp"
+						android:paddingLeft="20dp"
+						android:paddingRight="20dp"
+						android:paddingTop="10dp"
+						android:text="time"
+						android:textColor="#ffffff"
+						android:textSize="18sp"
+						/>
+				</LinearLayout>
+
+				<DatePicker
+					android:id="@+id/dayPicker"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="20dp"
+					android:layout_marginRight="20dp"
+					android:layout_marginTop="20dp"
+					android:visibility="invisible"/>
+
+				<TimePicker
+					android:id="@+id/timePicker"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_margin="20dp"
+					android:layout_marginBottom="10dp"
+					android:layout_marginTop="10dp"
+					android:visibility="invisible"
+					/>
+
+			</LinearLayout>
+
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true"
+				android:layout_below="@+id/date_time_layout"
+				android:layout_centerHorizontal="true"
+				android:orientation="horizontal">
+
+				<Button
+					android:id="@+id/save_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:background="#000"
+					android:gravity="center"
+					android:onClick="save_note"
+					android:text="Save"
+					android:textAlignment="center"
+					android:textColor="#fff"
+
+					android:visibility="invisible"/>
+
+				<View
+					android:layout_width="1dp"
+					android:layout_height="match_parent"
+					android:background="#fff"/>
+
+				<Button
+					android:id="@+id/delete_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:background="#000"
+					android:gravity="center"
+					android:onClick="delete_note"
+					android:text="Delete"
+					android:textAlignment="center"
+					android:textColor="#fff"
+					android:visibility="invisible"
+					tools:visibility="visible"
+					/>
+			</LinearLayout>
+		</RelativeLayout>
+	</ScrollView>
+</RelativeLayout>
